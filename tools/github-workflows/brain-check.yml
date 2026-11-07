@@ -1,0 +1,14 @@
+name: brain-check
+on: pull_request
+permissions:
+  contents: read
+jobs:
+  check:
+    name: brain-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - run: pip install pyyaml
+      - run: python3 tools/brain_check.py --commits "origin/${{ github.base_ref }}"

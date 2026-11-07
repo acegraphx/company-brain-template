@@ -1,0 +1,11 @@
+# Vlastníci. Nahraď ORG názvem organizace a týmy skutečnými týmy.
+*                      @ORG/brain-maintainers
+/kb/architecture/      @ORG/tech-leads
+/kb/decisions/         @ORG/tech-leads
+/kb/runbooks/          @ORG/tech-leads
+/kb/product/           @ORG/product-owners
+/kb/projects/          @ORG/project-leads
+/AGENTS.md             @ORG/brain-maintainers
+/SCHEMA.md             @ORG/brain-maintainers
+/.github/              @ORG/brain-maintainers
+/tools/                @ORG/brain-maintainers
