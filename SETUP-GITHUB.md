@@ -1,4 +1,23 @@
-# Nastavení GitHubu (checklist)
+# Nastavení GitHubu
+
+## Nejjednodušší cesta: nastaví to agent
+
+Šéf (správce organizace na GitHubu) napíše svému Hermesovi:
+
+> Založ v naší organizaci <název organizace> na GitHubu soukromé repo company-brain ze šablony acegraphx/company-brain-template a nastav ho podle jeho SETUP-GITHUB.md. Vlastníky oblastí nastav na konkrétní lidi místo týmů: <GitHub jméno šéfa> rozhodnutí, produkt, zakázky a pravidla, <GitHub jméno hlavního vývojáře> architektura a runbooky. Zapni kontrolu brain-check a ochranu hlavní větve. Nejdřív mi ukaž, co přesně uděláš.
+
+Co k tomu agent potřebuje: GitHub CLI přihlášené účtem správce organizace (`gh auth login`) a plán Team nebo vyšší (ochrana větví v soukromém repu). Na zapnutí kontroly brain-check si řekne o oprávnění workflow (`gh auth refresh -s workflow`), to šéf potvrdí v prohlížeči.
+
+### Postup pro agenta
+
+1. `gh repo create <ORG>/company-brain --private --template acegraphx/company-brain-template --clone`
+2. Všude nahradit `@ORG/<tým>` GitHub jménem vlastníka podle zadání (`.github/CODEOWNERS`, `kb/ownership.md`, `templates/`, `README.md`, `AGENTS.md`) a zbylé `ORG` názvem organizace. `python3 tools/brain_check.py --write-index` musí skončit bez chyb (potřebuje PyYAML).
+3. Přesunout `tools/github-workflows/brain-check.yml` do `.github/workflows/`, commit a push (vyžaduje oprávnění workflow).
+4. `gh repo edit <ORG>/company-brain --enable-merge-commit --enable-squash-merge=false --enable-rebase-merge=false --delete-branch-on-merge`
+5. Ochrana hlavní větve jako ruleset (`gh api -X POST repos/<ORG>/company-brain/rulesets --input ruleset.json`): pull request s jedním schválením, schválení vlastníka oblasti, zrušení starých schválení po novém pushi, schválení posledního pushe, povinná kontrola `brain-check`, žádné výjimky, zákaz force push a mazání větve. Vzor `ruleset.json` je v `tools/github-ruleset.json`.
+6. Zkouška: přímý push do `main` musí selhat. Pak shrnout šéfovi, co je nastavené.
+
+## Ruční checklist (reference)
 
 Den předem projdi na vlastní organizaci. Názvy voleb v GitHub UI se mění. Položky označené [ověřit] zkontroluj na místě.
 
