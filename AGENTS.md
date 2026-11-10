@@ -21,3 +21,9 @@ Tento soubor čte agent (Hermes, Copilot, Claude Code). Lidé ho mění jen pře
 11. AGENTS.md, SCHEMA.md, .github/ a tools/ měň jen na výslovný pokyn člověka.
 12. Rozhodnutí ze schůzek a hovorů jen navrhuj (`status: proposed`) podle kb/decisions/AGENTS.md;
     potvrzuje člověk.
+13. Mozek je jen pro to, na co se má spolehnout celý tým. Osobní poznámky svého člověka sem nepiš,
+    patří do jeho osobní wiki. Když je pokyn nejasný, zeptej se: „Jen pro tebe, nebo pro celý tým?“
+14. Hromadný onboarding (založení stránek z webu, dokumentace, helpdesku) jen na výslovný pokyn:
+    nejdřív plán po oblastech, pak jedna větev a jeden PR na oblast (zde neplatí limit 5 souborů),
+    `confidence: low`, `review_by` do 6 týdnů, zdroje = skutečně přečtené dokumenty. V popisu PR
+    seznam stránek a co si má vlastník oblasti zkontrolovat nejdřív.

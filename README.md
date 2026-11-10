@@ -4,6 +4,16 @@ Git repozitář s ověřenými znalostmi týmu: architektura, rozhodnutí, runbo
 
 Tento repozitář je **šablona**. Před použitím nahraď `ORG` názvem své organizace a postupuj podle `SETUP-GITHUB.md`.
 
+## Tři vrstvy znalostí
+
+| Vrstva | Co tam patří | Kdo zapisuje | Schvaluje se? |
+|---|---|---|---|
+| Paměť agenta | pár řádků: kdo jste, jak pracujete, kde je mozek a osobní wiki | agent | ne |
+| Osobní wiki (každý svoji, např. `~/wiki`) | vlastní poznámky, postřehy, rozpracované věci, delší kontext | agent sám | ne |
+| Firemní mozek (tento repozitář) | jen to, na co se má spolehnout celý tým | agent navrhne pull request | ano, vlastník oblasti |
+
+Co se v osobní wiki osvědčí a hodí se ostatním, agent na pokyn navrhne do mozku. Velký onboarding (založení stránek z webu, dokumentace, helpdesku) jde po oblastech: jeden pull request na oblast, stránky s nízkou důvěrou, vlastník oblasti schválí každý PR najednou.
+
 ## Pravidla v 10 řádcích
 
 1. Oficiální je jen `main`. Každá změna = větev + pull request.
